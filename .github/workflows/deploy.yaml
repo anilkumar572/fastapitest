@@ -18,10 +18,12 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_KEY }}
 
-          script: |
-            cd /root/fastapitest
-            git pull origin main
-            source venv/bin/activate
-            pip install -r requirements.txt
-            sudo systemctl restart fastapi
-            sudo systemctl status fastapi --no-pager
+         script: |
+           cd /root/fastapitest
+           git pull origin main
+           source venv/bin/activate
+           pip install -r requirements.txt
+           sudo systemctl restart fastapi
+           sudo systemctl status fastapi --no-pager
+           echo "=== Last 50 log lines ==="
+           sudo journalctl -u fastapi -n 50 --no-pager

@@ -26,7 +26,8 @@ def about():
             "FastAPI",
             "Python",
             "Firebase",
-            "Next.js"
+            "Next.js",
+            "Dart"
         ]
     }
 
